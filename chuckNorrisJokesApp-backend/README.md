@@ -1,3 +1,3 @@
 # myApp
 
-Spring Boot app that has a single landing page which everytime generates a new Chuck Norris joke
+Spring Boot Rest App that has one endpoint which everytime returns a new Chuck Norris joke
