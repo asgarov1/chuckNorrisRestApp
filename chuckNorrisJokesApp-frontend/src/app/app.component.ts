@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Subscription} from 'rxjs';
+import {environment} from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'chuckNorrisJokesApp-frontend';
+  title = 'Chuck Norris App';
   joke = '';
   private subscribed: Subscription;
 
@@ -28,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private updateRandomJoke(): void {
-    this.subscribed = this.http.get('http://localhost:8080/api/randomJoke', {responseType: 'text'})
+    this.subscribed = this.http.get(`http://${environment.apiUrl}/api/randomJoke`, {responseType: 'text'})
       .subscribe(data => this.joke = data);
   }
 }
